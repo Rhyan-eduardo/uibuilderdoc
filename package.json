@@ -1,0 +1,22 @@
+{
+  "name": "uibuilder-web-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "run-p vite scss",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "vite": "vite",
+    "scss": "sass --watch src/scss/global.scss:./src/css/global.css"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  },
+  "dependencies": {
+    "@limbusfoundation/uibuilder": "^1.6.0",
+    "sass": "^1.99.0",
+    "npm-run-all2": "^9.0.3"
+  }
+}
