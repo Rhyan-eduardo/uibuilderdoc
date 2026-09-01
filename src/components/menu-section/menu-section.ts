@@ -1,7 +1,7 @@
 
 import { UIBuilder } from "@limbusfoundation/uibuilder";
 
-export const MenuSection = UIBuilder.component(({ title, childs }, self) => {
+export const MenuSection = UIBuilder.component(({ title, childs }) => {
 
     const menuGroup = UIBuilder.group({ className: "menu-group" });
 
