@@ -18,7 +18,7 @@ const installTopic = Topic({
     content: "Install UIBuilder from npm and start building your interface with a simple and lightweight DOM-based API."
 });
 
-const libInstall = CodeCopy({
+const libInstall = CodeCopy({ 
     code: "$ npm install @limbusfoundation/uibuilder"
 });
 
