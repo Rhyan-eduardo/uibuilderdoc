@@ -1,0 +1,43 @@
+
+
+
+.topic-group{
+    position: relative;
+    width: 70%;
+    height: auto;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    flex-direction : column;
+    margin-bottom: 30px;
+}
+
+.topic-title{
+    position: relative;
+    font-family: var(--app-font);
+    color: #f7f7f7;
+    font-size: 23px;
+    text-align: left;
+    font-family: arial;
+    width: 100%;
+    box-sizing: border-box;
+    height : 35px;
+    border-bottom: 1px solid #06B4FF;
+    text-align: left;
+}
+
+.topic-content{
+    position: relative;
+    font-family: var(--app-font);
+    color: #f7f7f7;
+    font-size: 16px;
+    text-align: left;
+    font-family: arial;
+    width: 100%;
+    box-sizing: border-box;
+    height : auto;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+
+}

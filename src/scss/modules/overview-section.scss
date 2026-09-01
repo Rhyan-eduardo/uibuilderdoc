@@ -1,0 +1,134 @@
+
+.detail-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    flex-direction : column;
+    gap: 10px;
+}
+
+.logo{
+    position: relative;
+    width: 30%;
+}
+
+.counter-button{
+    position: relative;
+    background: #00334C;
+    border: 2px solid #06B4FF;
+    border-radius: 30px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    padding: 10px;
+    width: 200px;
+    height : 40px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.counter-label{
+    position: absolute;
+    color: #f7f7f7;
+    font-size: 15px;
+    left: 10px;
+    font-family: arial;
+}
+
+.counter-value{
+    position: absolute;
+    color: #f7f7f7;
+    font-size: 15px;
+    right: 10px;
+    text-align: right;
+    font-family: arial;
+}
+
+.title{
+    position: relative;
+    color: #f7f7f7;
+    font-size: 40px;
+    text-align: center;
+    font-family: arial;
+}
+
+.sub-title{
+    position: relative;
+    color: #f7f7f7;
+    font-size: 15px;
+    text-align: center;
+    font-family: arial;
+}
+
+.doc-lib-install{
+    position: relative;
+    width: 70%;
+    height: 40px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    border-radius: 5px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.doc-install-label{
+    position: absolute;
+    color: #00334C;
+    font-size: 15px;
+    text-align: left;
+    font-family: monospace;
+    left: 15px;
+}
+
+.code-block{
+    position: relative;
+    width: 70%;
+    height: auto;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    margin-bottom: 40px;
+    pre{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border: 2px solid #06B4FF;
+        border-radius: 5px;
+    }
+}
+
+.doc-install-copy-button{
+    position: absolute;
+    right: 5px;
+    border: 1px solid #00334C;
+    border-radius: 3px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    padding: 10px;
+    width: 50px;
+    height : 30px;
+    background: none;
+    cursor: pointer;
+    i{
+        color: #00334C;
+        font-size: 15px;
+    }
+    &:active{
+        background: #00334C;
+        i{
+            color: white;
+        }
+    }
+}
+
+.tt-tt{
+    background: #00aaff33;
+}

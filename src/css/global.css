@@ -1,21 +1,11 @@
-html,
-body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  background: #032230;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+:root {
+  --app-font: "Radio Canada", sans-serif;
 }
 
 .detail-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 300px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -41,6 +31,7 @@ body {
   width: 200px;
   height: 40px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .counter-label {
@@ -74,6 +65,272 @@ body {
   font-size: 15px;
   text-align: center;
   font-family: arial;
+}
+
+.doc-lib-install {
+  position: relative;
+  width: 70%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.doc-install-label {
+  position: absolute;
+  color: #00334C;
+  font-size: 15px;
+  text-align: left;
+  font-family: monospace;
+  left: 15px;
+}
+
+.code-block {
+  position: relative;
+  width: 70%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.code-block pre {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 2px solid #06B4FF;
+  border-radius: 5px;
+}
+
+.doc-install-copy-button {
+  position: absolute;
+  right: 5px;
+  border: 1px solid #00334C;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 50px;
+  height: 30px;
+  background: none;
+  cursor: pointer;
+}
+.doc-install-copy-button i {
+  color: #00334C;
+  font-size: 15px;
+}
+.doc-install-copy-button:active {
+  background: #00334C;
+}
+.doc-install-copy-button:active i {
+  color: white;
+}
+
+.tt-tt {
+  background: rgba(0, 170, 255, 0.2);
+}
+
+.topic-group {
+  position: relative;
+  width: 70%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.topic-title {
+  position: relative;
+  font-family: var(--app-font);
+  color: #f7f7f7;
+  font-size: 23px;
+  text-align: left;
+  font-family: arial;
+  width: 100%;
+  box-sizing: border-box;
+  height: 35px;
+  border-bottom: 1px solid #06B4FF;
+  text-align: left;
+}
+
+.topic-content {
+  position: relative;
+  font-family: var(--app-font);
+  color: #f7f7f7;
+  font-size: 16px;
+  text-align: left;
+  font-family: arial;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  text-align: left;
+  margin: 0px;
+  padding: 0px;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #032230;
+}
+
+.root-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.side-bar {
+  position: relative;
+  width: 400px;
+  height: 100%;
+  box-sizing: border-box;
+  background: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.side-bar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.doc-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.doc-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.doc-header {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doc-header-logo {
+  position: absolute;
+  height: 30px;
+  left: 15px;
+}
+
+.doc-version-label {
+  position: absolute;
+  right: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  font-weight: initial;
+  color: #032230;
+}
+
+.menu-group {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 30px;
+  padding-top: 10px;
+}
+
+.menu-section-title {
+  position: relative;
+  font-family: var(--app-font);
+  font-size: 17px;
+  font-weight: initial;
+  text-align: left;
+  color: #0296f8;
+  width: 100%;
+  height: 25px;
+  box-sizing: border-box;
+}
+
+.menu-button {
+  position: relative;
+  font-family: var(--app-font);
+  font-size: 14px;
+  font-weight: initial;
+  text-align: left;
+  color: #032230;
+  width: 100%;
+  height: 25px;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.menu-button:hover {
+  text-decoration: underline;
+  background: #eeeeee;
+}
+
+.menu-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.router-view {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 70px;
 }
 
 /*# sourceMappingURL=global.css.map */

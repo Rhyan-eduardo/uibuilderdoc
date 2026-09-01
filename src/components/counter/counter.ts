@@ -3,7 +3,7 @@
 
 import { UIBuilder } from "@limbusfoundation/uibuilder";
 
-export const counter = UIBuilder.component(() => {
+export const counter = UIBuilder.component(({ onClick }) => {
 
     const label = UIBuilder.label({ label: "Counter", className : "counter-label" });
     const coutnerValue = UIBuilder.label({ label : "0" , className : "counter-value"});
@@ -18,6 +18,7 @@ export const counter = UIBuilder.component(() => {
     UIBuilder.event(button).add("click", () => {
         count++;
         coutnerValue.label(String(count));
+        onClick()
     });
 
     return UIBuilder.blend(button);   

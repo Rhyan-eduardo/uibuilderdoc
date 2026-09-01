@@ -1,7 +1,9 @@
 // GLOBAL STYLE : 
 
-@import "./theme.scss";
-@import "./modules/example-module.scss";
+@use "./theme.scss";
+@use "./modules/example-module.scss";
+@use "./modules/overview-section.scss";
+@use "./modules/quick-start-section.scss";
 
 html,
 body {
@@ -11,13 +13,13 @@ body {
 }
 
 body {
-    background: #032230;
     display : flex;
     justify-content : center;
     align-items : center;
+    background: #032230;
 }
 
-.detail-container {
+.root-container{
     position: relative;
     width: 100%;
     height: 100%;
@@ -25,59 +27,144 @@ body {
     display : flex;
     justify-content : center;
     align-items : center;
+    flex-direction : row;
+} 
+
+.side-bar {
+    position: relative;
+    width: 400px;
+    height: 100%;
+    box-sizing: border-box;
+    background: #ffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    overflow-y: auto;
+    scrollbar-width: thin; 
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+}
+
+.doc-area{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
     flex-direction : column;
-    gap: 10px;
+
+    overflow-y: auto;
+    scrollbar-width: thin; 
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
 }
 
-.logo{
+.doc-header{
     position: relative;
-    width: 30%;
-}
-
-.counter-button{
-    position: relative;
-    background: #00334C;
-    border: 2px solid #06B4FF;
-    border-radius: 30px;
+    width: 100%;
+    height: 90px;
+    box-sizing: border-box;
     display : flex;
     justify-content : center;
     align-items : center;
-    padding: 10px;
-    width: 200px;
-    height : 40px;
+}
+
+.doc-header-logo{
+    position: absolute;
+    height : 30px;
+    left: 15px;
+}
+
+.doc-version-label{
+    position: absolute;
+    right: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 10px;
+    font-weight: initial;
+    color : #032230;
+}
+
+.menu-group{
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    flex-direction : column;
+    margin-left : 30px;
+    padding-top: 10px;
+}
+
+.menu-section-title{
+    position: relative;
+    font-family: var(--app-font);
+    font-size: 17px;
+    font-weight: initial;
+    text-align: left;
+    color : #0296f8;
+    width : 100%;
+    height : 25px;
+    box-sizing: border-box;
+}
+
+.menu-button{
+    position: relative;
+    font-family: var(--app-font);
+    font-size: 14px;
+    font-weight: initial;
+    text-align: left;
+    color : #032230;
+    width : 100%;
+    height : 25px;
+    box-sizing: border-box;
+    user-select: none;
     cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &:hover{
+        text-decoration: underline;
+        background : #eeeeee;
+    }
 }
 
-.counter-label{
-    position: absolute;
-    color: #f7f7f7;
-    font-size: 15px;
-    left: 10px;
-    font-family: arial;
-}
 
-.counter-value{
-    position: absolute;
-    color: #f7f7f7;
-    font-size: 15px;
-    right: 10px;
-    text-align: right;
-    font-family: arial;
-}
 
-.title{
+.menu-container{
     position: relative;
-    color: #f7f7f7;
-    font-size: 40px;
-    text-align: center;
-    font-family: arial;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    flex-direction : column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
-.sub-title{
+.router-view{
     position: relative;
-    color: #f7f7f7;
-    font-size: 15px;
-    text-align: center;
-    font-family: arial;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    flex-direction : column;
+    margin-top: 70px;
 }
 
