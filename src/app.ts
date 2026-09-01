@@ -4,7 +4,6 @@
 import { UIBuilder } from "@limbusfoundation/uibuilder";
 import { MenuSection } from "./components/menu-section/menu-section";
 import logoImg from "./assets/uibuilder-logo-vector.svg";
-import { RouterView } from "./components/router-view/router-view";
 import { overviewRoute } from "./modules/section/overview-section";
 import { quickStartSection } from "./modules/section/quick-start-section";
 
@@ -37,8 +36,6 @@ const menuContainer = UIBuilder.group({ className : "menu-container"})
 sideBar.render(menuContainer);
 
 // GET STARTED SECTION : 
-
-const aa = UIBuilder.label({ label : "BUBO"})
 
 UIBuilder.router.root(docArea)
 UIBuilder.router.route("/", overviewRoute);

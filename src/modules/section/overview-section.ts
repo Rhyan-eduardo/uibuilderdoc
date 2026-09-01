@@ -7,7 +7,6 @@ import { counter } from "../../components/counter/counter";
 import { CodeBlock } from "../../components/code-block/code-block";
 
 import logoImg from "../../assets/uibuilder-logo-vector.svg";
-import { Topic } from "../../components/topic/topic";
 import { CodeCopy } from "../../components/code-copy/code-copy";
 
 
