@@ -3,17 +3,16 @@
 
 import { UIBuilder } from "@limbusfoundation/uibuilder";
 import { MenuSection } from "./components/menu-section/menu-section";
-import logoImg from "./assets/uibuilder-logo-vector.svg";
-import { overviewRoute } from "./modules/section/overview-section";
-import { quickStartSection } from "./modules/section/quick-start-section";
+import { initRouter } from "./modules/router/route";
 
+import logoImg from "./assets/uibuilder-logo-vector.svg";
 
 const root = UIBuilder.group({ className : "root-container"});
 
 UIBuilder.body.render(root);
 
 const sideBar = UIBuilder.panel({ className : "side-bar"});
-const docArea = UIBuilder.panel({ className : "doc-area"});
+export const docArea = UIBuilder.panel({ className : "doc-area"});
 
 const layout = UIBuilder.blend(sideBar,docArea)
 
@@ -27,36 +26,31 @@ const docLogo = UIBuilder.image({ src : logoImg , className : "doc-header-logo"}
 
 docHeader.render(docLogo);
 
-const docVersionlabel = UIBuilder.label({ label : "v.1.7.1 BETA" , className : "doc-version-label"})
+const docVersionlabel = UIBuilder.label({ label : "v.1.7.8 BETA" , className : "doc-version-label"})
 
 docHeader.render(docVersionlabel);
 
-const menuContainer = UIBuilder.group({ className : "menu-container"})
+const menuContainer = UIBuilder.group({ className : "menu-container"}) 
 
 sideBar.render(menuContainer);
 
-// GET STARTED SECTION : 
-
-UIBuilder.router.root(docArea)
-UIBuilder.router.route("/", overviewRoute);
-UIBuilder.router.route("/quick-start", quickStartSection);  
-UIBuilder.router.init();
+initRouter()
 
 const overviewButton = UIBuilder.routeButton({ path : "/", label: "Overview" , className : "menu-button"});
 const quickStartMenuButton = UIBuilder.routeButton({ path : "/quick-start", label: "Quick Start" , className : "menu-button"});
-const uibuilderButton = UIBuilder.routeButton({ path : "/", label: "UIBuilder" , className : "menu-button"});
+const uibuilderButton = UIBuilder.routeButton({ path : "/uibuilder", label: "UIBuilder" , className : "menu-button"});
 
 const getStartedSection = MenuSection({
     title: "Get Started",
     childs: UIBuilder.blend(overviewButton,quickStartMenuButton,uibuilderButton)
 });
 
-menuContainer.render(getStartedSection);
+menuContainer.render(getStartedSection);  
 
 // TEMPLATE SECTION : 
 
-const electronTemplateButton = UIBuilder.routeButton({ path : "/", label: "Electron" , className : "menu-button"});
-const webTemplateButton = UIBuilder.routeButton({ path : "/", label: "Web" , className : "menu-button"});
+const electronTemplateButton = UIBuilder.routeButton({ path : "/electron-template", label: "Electron" , className : "menu-button"});
+const webTemplateButton = UIBuilder.routeButton({ path : "/web-template", label: "Web" , className : "menu-button"});
 const capacitorTemplateButton = UIBuilder.routeButton({ path : "/", label: "Capacitor" , className : "menu-button"});
 
 const templateSection = MenuSection({
@@ -72,17 +66,17 @@ menuContainer.render(templateSection);
 
 // ELEMENT SECTION : 
 
-const buttonElementButton = UIBuilder.routeButton({ path : "/", label: "Button" , className : "menu-button"});
-const groupElementButton = UIBuilder.routeButton({ path : "/", label: "Group" , className : "menu-button"});
-const panelElementButton = UIBuilder.routeButton({ path : "/", label: "Panel" , className : "menu-button"});
-const textFieldElementButton = UIBuilder.routeButton({ path : "/", label: "TextField" , className : "menu-button"});
-const sliderElementButton = UIBuilder.routeButton({ path : "/", label: "Slider" , className : "menu-button"});
-const slideElementButton = UIBuilder.routeButton({ path : "/", label: "Label" , className : "menu-button"});
-const imageElementButton = UIBuilder.routeButton({ path : "/", label: "Image" , className : "menu-button"});
-const iconButtonElementButton = UIBuilder.routeButton({ path : "/", label: "IconButton" , className : "menu-button"});
-const routeButtonElementButton = UIBuilder.routeButton({ path : "/", label: "RouteButton" , className : "menu-button"});
-const iconElementButton = UIBuilder.routeButton({ path : "/", label: "Icon" , className : "menu-button"});
-const customElementButton = UIBuilder.routeButton({ path : "/", label: "Custom" , className : "menu-button"});
+const buttonElementButton = UIBuilder.routeButton({ path : "/button", label: "Button" , className : "menu-button"});
+const groupElementButton = UIBuilder.routeButton({ path : "/group", label: "Group" , className : "menu-button"});
+const panelElementButton = UIBuilder.routeButton({ path : "/panel", label: "Panel" , className : "menu-button"});
+const textFieldElementButton = UIBuilder.routeButton({ path : "/text-field", label: "TextField" , className : "menu-button"});
+const sliderElementButton = UIBuilder.routeButton({ path : "/slider", label: "Slider" , className : "menu-button"});
+const slideElementButton = UIBuilder.routeButton({ path : "/label", label: "Label" , className : "menu-button"});
+const imageElementButton = UIBuilder.routeButton({ path : "/image", label: "Image" , className : "menu-button"});
+const iconButtonElementButton = UIBuilder.routeButton({ path : "/icon-button", label: "IconButton" , className : "menu-button"});
+const routeButtonElementButton = UIBuilder.routeButton({ path : "/route-button", label: "RouteButton" , className : "menu-button"});
+const iconElementButton = UIBuilder.routeButton({ path : "/icon", label: "Icon" , className : "menu-button"});
+const customElementButton = UIBuilder.routeButton({ path : "/custom", label: "Custom" , className : "menu-button"});
 
 const elementSection = MenuSection({
     title: "Element",
@@ -105,10 +99,10 @@ menuContainer.render(elementSection);
 
 // METHOD SECTION : 
 
-const   blendMethodButton = UIBuilder.routeButton({ path : "/", label: "Blend" , className : "menu-button"});
-const   styleMethodButton = UIBuilder.routeButton({ path : "/", label: "Style" , className : "menu-button"});
-const   eventMethodButton = UIBuilder.routeButton({ path : "/", label: "Event" , className : "menu-button"});
-const   componentMethodButton = UIBuilder.routeButton({ path : "/", label: "Component" , className : "menu-button"});
+const   blendMethodButton = UIBuilder.routeButton({ path : "/blend", label: "Blend" , className : "menu-button"});
+const   styleMethodButton = UIBuilder.routeButton({ path : "/style", label: "Style" , className : "menu-button"});
+const   eventMethodButton = UIBuilder.routeButton({ path : "/event", label: "Event" , className : "menu-button"});
+const   componentMethodButton = UIBuilder.routeButton({ path : "/component", label: "Component" , className : "menu-button"});
 
 const methodSection = MenuSection({
     title: "Method",
@@ -124,12 +118,12 @@ menuContainer.render(methodSection);
 
 // UTILITY SECTION : 
 
-const   watcherUtilityButton = UIBuilder.routeButton({ path : "/", label: "Watcher" , className : "menu-button"});
-const   storeUtilityButton = UIBuilder.routeButton({ path : "/", label: "Store" , className : "menu-button"});
-const   htmlUtilityButton = UIBuilder.routeButton({ path : "/", label: "Html" , className : "menu-button"});
-const   bodyUtilityButton = UIBuilder.routeButton({ path : "/", label: "Body" , className : "menu-button"});
-const   headUtilityButton = UIBuilder.routeButton({ path : "/", label: "Head" , className : "menu-button"});
-const   routerUtilityButton = UIBuilder.routeButton({ path : "/", label: "Router" , className : "menu-button"});
+const   watcherUtilityButton = UIBuilder.routeButton({ path : "/watcher", label: "Watcher" , className : "menu-button"});
+const   storeUtilityButton = UIBuilder.routeButton({ path : "/store", label: "Store" , className : "menu-button"});
+const   htmlUtilityButton = UIBuilder.routeButton({ path : "/html", label: "Html" , className : "menu-button"});
+const   bodyUtilityButton = UIBuilder.routeButton({ path : "/body", label: "Body" , className : "menu-button"});
+const   headUtilityButton = UIBuilder.routeButton({ path : "/head", label: "Head" , className : "menu-button"});
+const   routerUtilityButton = UIBuilder.routeButton({ path : "/router", label: "Router" , className : "menu-button"});
 
 const utilitySection = MenuSection({
     title: "Utility",

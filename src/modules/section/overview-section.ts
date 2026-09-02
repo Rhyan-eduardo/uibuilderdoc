@@ -8,7 +8,7 @@ import { CodeBlock } from "../../components/code-block/code-block";
 
 import logoImg from "../../assets/uibuilder-logo-vector.svg";
 import { CodeCopy } from "../../components/code-copy/code-copy";
-
+import { Topic } from "../../components/topic/topic";
 
 // DOCUMENT HEADER :
 
@@ -32,35 +32,19 @@ const subTitle = UIBuilder.label({
 });
 
 
-// LIBRARY INSTALL :
+// WHY UIBUILDER TOPIC :
 
-// const installText: string = "$ npm install @limbusfoundation/uibuilder";
-
-// const libInstall = UIBuilder.group({
-//     className: "doc-lib-install"
-// });
-
-// const installLabel = UIBuilder.label({
-//     label: installText,
-//     className: "doc-install-label"
-// });
-
-// const copyInstallButton = UIBuilder.iconButton({
-//     iconClassName: "ri-clipboard-line",
-//     className: "doc-install-copy-button"
-// });
-
-// UIBuilder.event(copyInstallButton).add("click", async () => {
-//     await navigator.clipboard.writeText(installText.replace("$ ", ""));
-
-//     installLabel.label("Copied!");
-
-//     setTimeout(() => installLabel.label(installText), 2000);
-// });
-
-// libInstall.render(installLabel);
-// libInstall.render(copyInstallButton);
-
+const whyUIBuilderTopic = Topic({
+    title: "Why UIBuilder",
+    content: "UIBuilder is designed with a direct and focused approach to building user interfaces. It gives developers the freedom to compose elements, components, and layouts without being forced into a predefined architectural pattern. Built around a vanilla-first philosophy, UIBuilder stays close to the native DOM while providing useful abstractions for everyday interface development. Rather than following traditional approaches popularized by frameworks such as React, UIBuilder takes a different path: keeping composition flexible, making the underlying platform accessible, and giving you more control over how your interface is structured and behaves.",
+    highlight: [
+        "direct and focused approach",
+        "vanilla-first philosophy",
+        "native DOM",
+        "React",
+        "composition flexible"
+    ]
+});
 
 // COUNTER CODE EXAMPLE :
 
@@ -140,7 +124,8 @@ export const overviewRoute = RouterView({
     childs: UIBuilder.blend(
         detailContainer,
         libInstall,
-        counterCodeExample
+        counterCodeExample,
+        whyUIBuilderTopic
     )
 });
 

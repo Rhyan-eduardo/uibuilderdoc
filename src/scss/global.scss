@@ -42,28 +42,48 @@ body {
     flex-direction: column;
 
     overflow-y: auto;
-    scrollbar-width: thin; 
+    scrollbar-width: thin;
+    scrollbar-color: #032230 transparent;
 
     &::-webkit-scrollbar {
         width: 6px;
     }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #032230;
+        border-radius: 0;
+    }
 }
 
-.doc-area{
+.doc-area {
     position: relative;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    display : flex;
-    justify-content : flex-start;
-    align-items : center;
-    flex-direction : column;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 
     overflow-y: auto;
-    scrollbar-width: thin; 
+    scrollbar-width: thin;
+    scrollbar-color: #0296f8 transparent;
 
     &::-webkit-scrollbar {
         width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #0296f8;
+        border-radius: 0;
     }
 }
 

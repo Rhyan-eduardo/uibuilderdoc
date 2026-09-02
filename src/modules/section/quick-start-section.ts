@@ -16,6 +16,7 @@ import { CodeBlock } from "../../components/code-block/code-block";
 const installTopic = Topic({
     title: "Install",
     content: "Install UIBuilder from npm and start building your interface with a simple and lightweight DOM-based API."
+    ,highlight : ["DOM-based","API"]
 });
 
 const libInstall = CodeCopy({ 
@@ -28,6 +29,8 @@ const libInstall = CodeCopy({
 const importTopic = Topic({
     title: "Import",
     content: "Import UIBuilder into your project and access its components, utilities, and DOM helpers directly from the package."
+    ,highlight : ["DOM"]
+
 });
 
 const importCode = await CodeBlock({
@@ -40,6 +43,8 @@ const importCode = await CodeBlock({
 const elementTopic = Topic({
     title: "Create an Element",
     content: "Create UI elements using UIBuilder's simple API. Each element is a wrapper around a native DOM element."
+    ,highlight : ["DOM"]
+
 });
 
 const elementCode = await CodeBlock({
@@ -54,6 +59,8 @@ const elementCode = await CodeBlock({
 const renderTopic = Topic({
     title: "Render",
     content: "Render your elements into the document using UIBuilder's render API. Elements can be rendered into the body or any UIBuilder container."
+    ,highlight : ["API"]
+
 });
 
 const renderCode = await CodeBlock({
@@ -66,6 +73,7 @@ const renderCode = await CodeBlock({
 const composeTopic = Topic({
     title: "Compose",
     content: "Build larger interfaces by combining multiple elements with UIBuilder.blend or by rendering children directly into containers."
+
 });
 
 const composeCode = await CodeBlock({
@@ -91,6 +99,8 @@ UIBuilder.body.render(content);`
 const eventTopic = Topic({
     title: "Events",
     content: "Add DOM events to your components without manually accessing addEventListener. UIBuilder keeps event handling close to the element it belongs to."
+    ,highlight : ["addEventListener"]
+
 });
 
 const eventCode = await CodeBlock({
@@ -105,6 +115,8 @@ const eventCode = await CodeBlock({
 const componentTopic = Topic({
     title: "Components",
     content: "Create reusable UI components with UIBuilder.component. Components can receive props, manage their own state, and return any UIBuilder element."
+    ,highlight : ["UIBuilder.component"]
+
 });
 
 const componentCode = await CodeBlock({
@@ -137,10 +149,11 @@ UIBuilder.body.render(Counter());`
 const routerTopic = Topic({
     title: "Routing",
     content: "Create client-side routes without full page reloads. UIBuilder Router can render routes into any UIBuilder container, making it suitable for web-based applications."
+    ,highlight : ["web-based","client-side"]
 });
 
 const routerCode = await CodeBlock({
-    code: `UIBuilder.router.root(app);
+    code: `UIBuilder.router.root(app); // <body> by default!
 
 UIBuilder.router.route("/", home);
 UIBuilder.router.route("/about", about);
