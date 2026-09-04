@@ -6,6 +6,7 @@ import { MenuSection } from "./components/menu-section/menu-section";
 import { initRouter } from "./modules/router/route";
 
 import logoImg from "./assets/uibuilder-logo-vector.svg";
+import { footer } from "./modules/footer/footer";
 
 const root = UIBuilder.group({ className : "root-container"});
 
@@ -26,7 +27,7 @@ const docLogo = UIBuilder.image({ src : logoImg , className : "doc-header-logo"}
 
 docHeader.render(docLogo);
 
-const docVersionlabel = UIBuilder.label({ label : "v.1.7.8 BETA" , className : "doc-version-label"})
+const docVersionlabel = UIBuilder.label({ label : "v.1.7.12 BETA" , className : "doc-version-label"})
 
 docHeader.render(docVersionlabel);
 
@@ -34,7 +35,9 @@ const menuContainer = UIBuilder.group({ className : "menu-container"})
 
 sideBar.render(menuContainer);
 
-initRouter()
+initRouter();
+
+docArea.render(footer());
 
 const overviewButton = UIBuilder.routeButton({ path : "/", label: "Overview" , className : "menu-button"});
 const quickStartMenuButton = UIBuilder.routeButton({ path : "/quick-start", label: "Quick Start" , className : "menu-button"});
@@ -43,11 +46,11 @@ const uibuilderButton = UIBuilder.routeButton({ path : "/uibuilder", label: "UIB
 const getStartedSection = MenuSection({
     title: "Get Started",
     childs: UIBuilder.blend(overviewButton,quickStartMenuButton,uibuilderButton)
-});
+}); 
 
 menuContainer.render(getStartedSection);  
 
-// TEMPLATE SECTION : 
+// TEMPLATE SEC TION : 
 
 const electronTemplateButton = UIBuilder.routeButton({ path : "/electron-template", label: "Electron" , className : "menu-button"});
 const webTemplateButton = UIBuilder.routeButton({ path : "/web-template", label: "Web" , className : "menu-button"});

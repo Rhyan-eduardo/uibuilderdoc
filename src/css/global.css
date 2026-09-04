@@ -370,4 +370,75 @@ body {
   margin-top: 70px;
 }
 
+.footer-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background: #1B1E28;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 3px solid #0296f8;
+}
+
+.footer-logo {
+  position: relative;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.footer-copy {
+  position: relative;
+  font-family: var(--app-font);
+  font-size: 12px;
+  font-weight: initial;
+  text-align: center;
+  color: #f7f7f7;
+}
+
+.footer-made-in-label {
+  position: relative;
+  font-family: var(--app-font);
+  font-size: 10px;
+  font-weight: initial;
+  text-align: center;
+  color: #f7f7f7;
+  margin-top: 2px;
+}
+
+.footer-license-label {
+  position: relative;
+  font-family: var(--app-font);
+  font-size: 10px;
+  font-weight: initial;
+  text-align: center;
+  color: #f7f7f7;
+  margin-top: 2px;
+}
+
+.footer-link {
+  position: relative;
+  font-family: var(--app-font);
+  font-size: 12px;
+  font-weight: initial;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 10px;
+  gap: 5px;
+}
+.footer-link a {
+  color: #0296f8;
+}
+
 /*# sourceMappingURL=global.css.map */

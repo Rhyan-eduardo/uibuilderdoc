@@ -15,7 +15,7 @@
     "vite": "^8.2.0"
   },
   "dependencies": {
-    "@limbusfoundation/uibuilder": "^1.7.8",
+    "@limbusfoundation/uibuilder": "^1.7.12",
     "npm-run-all2": "^9.0.3",
     "sass": "^1.99.0",
     "shiki": "^4.4.3"
