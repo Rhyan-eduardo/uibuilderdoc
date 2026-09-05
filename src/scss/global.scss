@@ -242,6 +242,16 @@ body {
     margin-top: 2px;
 }
 
+.last-update-label{
+    position: relative;
+    font-family: var(--app-font);
+    font-size: 10px;
+    font-weight: initial;
+    text-align: center;
+    color : #f7f7f7;
+    margin-top: 2px;
+}
+
 .footer-link{
     position: relative;
     font-family: var(--app-font);

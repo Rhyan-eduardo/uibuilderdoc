@@ -17,6 +17,8 @@ export const footer = UIBuilder.component(()=>{
 
     const licenseLabel = UIBuilder.label({ label : "MIT License" , className : "footer-license-label"})
 
+    const lastUpdateLabel = UIBuilder.label({ label : "Last Update - September 5, 2026" , className : "last-update-label"})
+
     const footerLink = UIBuilder.label({ className : "footer-link"});
 
     const footerGithubLink = UIBuilder.custom({ tag : "a" , attribute : { target : "_blank" , href : "https://github.com/Limbus-Foundation/uibuilder"}})
@@ -29,7 +31,7 @@ export const footer = UIBuilder.component(()=>{
 
     footerLink.render(UIBuilder.blend(footerGithubLink,footerNPMLink,footerDocShowcaseLink))
 
-    footerContainer.render(UIBuilder.blend(footerLogo,footerCopy,madeInlabel,licenseLabel,footerLink));
+    footerContainer.render(UIBuilder.blend(footerLogo,footerCopy,madeInlabel,lastUpdateLabel,licenseLabel,footerLink));
 
     return footerContainer
 });

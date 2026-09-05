@@ -27,7 +27,18 @@ const docLogo = UIBuilder.image({ src : logoImg , className : "doc-header-logo"}
 
 docHeader.render(docLogo);
 
-const docVersionlabel = UIBuilder.label({ label : "v.1.7.12 BETA" , className : "doc-version-label"})
+const getTagLabel = async () : Promise<string> => {
+    const response = await fetch("https://registry.npmjs.org/@limbusfoundation/uibuilder");
+    const data = await response.json();
+    return data;
+};
+
+const docVersionlabel = UIBuilder.label({ label : "Loading...", className : "doc-version-label"})
+
+setTimeout( async () => {
+    const tag = await getTagLabel()  as any;
+    docVersionlabel.label("V " + tag["dist-tags"].latest + " BETA");
+}, 2000);
 
 docHeader.render(docVersionlabel);
 
@@ -72,12 +83,11 @@ menuContainer.render(templateSection);
 const buttonElementButton = UIBuilder.routeButton({ path : "/button", label: "Button" , className : "menu-button"});
 const groupElementButton = UIBuilder.routeButton({ path : "/group", label: "Group" , className : "menu-button"});
 const panelElementButton = UIBuilder.routeButton({ path : "/panel", label: "Panel" , className : "menu-button"});
-const textFieldElementButton = UIBuilder.routeButton({ path : "/text-field", label: "TextField" , className : "menu-button"});
+const textFieldElementButton = UIBuilder.routeButton({ path : "/field", label: "Field" , className : "menu-button"});
 const sliderElementButton = UIBuilder.routeButton({ path : "/slider", label: "Slider" , className : "menu-button"});
 const slideElementButton = UIBuilder.routeButton({ path : "/label", label: "Label" , className : "menu-button"});
 const imageElementButton = UIBuilder.routeButton({ path : "/image", label: "Image" , className : "menu-button"});
-const iconButtonElementButton = UIBuilder.routeButton({ path : "/icon-button", label: "IconButton" , className : "menu-button"});
-const routeButtonElementButton = UIBuilder.routeButton({ path : "/route-button", label: "RouteButton" , className : "menu-button"});
+const routeButtonElementButton = UIBuilder.routeButton({ path : "/anchor", label: "Anchor" , className : "menu-button"});
 const iconElementButton = UIBuilder.routeButton({ path : "/icon", label: "Icon" , className : "menu-button"});
 const customElementButton = UIBuilder.routeButton({ path : "/custom", label: "Custom" , className : "menu-button"});
 
@@ -92,7 +102,6 @@ const elementSection = MenuSection({
         slideElementButton,
         imageElementButton,
         iconElementButton,
-        iconButtonElementButton,
         routeButtonElementButton,
         customElementButton
     )

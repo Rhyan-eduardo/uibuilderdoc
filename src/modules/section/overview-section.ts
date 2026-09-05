@@ -22,12 +22,12 @@ const logo = UIBuilder.image({
 });
 
 const title = UIBuilder.label({
-    label: "DOM Wrapper UI library",
+    label: "DOM Wrapper",
     className: "title"
 });
 
 const subTitle = UIBuilder.label({
-    label: "Create user interfaces for web-based applications.",
+    label: "Create UI for web-based application",
     className: "sub-title"
 });
 

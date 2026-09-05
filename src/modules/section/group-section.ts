@@ -32,12 +32,10 @@ const optionsCode = await CodeBlock({
     id: "content",
     className: "content-group",
     classList: ["container", "primary"],
-    attribute: [
-        {
-            name: "data-section",
-            value: "content"
-        }
-    ]
+    attribute: {
+        "data-section" : "content"
+    }
+    
 });`
 });
 
@@ -93,16 +91,11 @@ const attributeTopic = Topic({
 
 const attributeCode = await CodeBlock({
     code: `const group = UIBuilder.group({
-    attribute: [
-        {
-            name: "data-section",
-            value: "content"
-        },
-        {
-            name: "aria-label",
-            value: "Content"
-        }
-    ]
+    attribute: {
+        "data-section" : "content"
+        "aria-label" : "Content"
+    }
+    
 });`
 });
 
@@ -178,12 +171,10 @@ const removeAttributeTopic = Topic({
 
 const removeAttributeCode = await CodeBlock({
     code: `const group = UIBuilder.group({
-    attribute: [
-        {
-            name: "data-section",
-            value: "content"
-        }
-    ]
+    attribute: {
+        "data-section" : "content"
+    }
+    
 });
 
 group.removeAttribute("data-section");`

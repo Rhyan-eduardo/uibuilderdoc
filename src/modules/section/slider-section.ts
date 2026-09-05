@@ -27,16 +27,10 @@ const optionsCode = await CodeBlock({
     value: "50",
     className: "slider",
     classList: ["control", "primary"],
-    attribute: [
-        {
-            name: "min",
-            value: "0"
-        },
-        {
-            name: "max",
-            value: "100"
-        }
-    ]
+    attribute: {
+        min: "0",
+        max: "100"
+    }
 });`
 });
 
@@ -95,20 +89,11 @@ const attributeTopic = Topic({
 
 const attributeCode = await CodeBlock({
     code: `const slider = UIBuilder.slider({
-    attribute: [
-        {
-            name: "min",
-            value: "0"
-        },
-        {
-            name: "max",
-            value: "100"
-        },
-        {
-            name: "step",
-            value: "10"
-        }
-    ]
+    attribute: {
+        min: "0",
+        max: "100",
+        step: "10"
+    }
 });`
 });
 
@@ -148,16 +133,10 @@ const eventsTopic = Topic({
 const eventsCode = await CodeBlock({
     code: `const slider = UIBuilder.slider({
     value: "50",
-    attribute: [
-        {
-            name: "min",
-            value: "0"
-        },
-        {
-            name: "max",
-            value: "100"
-        }
-    ]
+    attribute: {
+        min: "0",
+        max: "100"
+    }
 });
 
 UIBuilder.event(slider).add("input", () => {

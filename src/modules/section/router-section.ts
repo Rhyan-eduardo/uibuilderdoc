@@ -1,4 +1,3 @@
-
 // ROUTER SECTION [SECTION] :
 
 import { UIBuilder } from "@limbusfoundation/uibuilder";
@@ -13,7 +12,7 @@ const routerTopic = Topic({
 
 const routeTopic = Topic({
     title: "route",
-    content: "Register a route by associating a path with a UIBuilder element or blend. When the browser navigates to that path, the registered content is rendered."
+    content: "Register a route by associating a path with a UIBuilder element or blend. Routes can also contain dynamic parameters using the :name syntax."
 });
 
 const routeCode = await CodeBlock({
@@ -21,16 +20,30 @@ const routeCode = await CodeBlock({
     label: "Home"
 });
 
-UIBuilder.router.route("/", home);`
+const profile = UIBuilder.label({
+    label: "Profile"
+});
+
+UIBuilder.router.route("/", home);
+UIBuilder.router.route("/profile/:id", profile);`
 });
 
 const navigateTopic = Topic({
     title: "navigate",
-    content: "Navigate to a registered route programmatically using UIBuilder.router.navigate. Navigation uses the browser History API without reloading the page."
+    content: "Navigate to a route programmatically using UIBuilder.router.navigate. Navigation creates a new browser history entry without reloading the page."
 });
 
 const navigateCode = await CodeBlock({
     code: `UIBuilder.router.navigate("/about");`
+});
+
+const retargetTopic = Topic({
+    title: "retarget",
+    content: "Navigate to a route while replacing the current browser history entry. Unlike navigate, retarget does not create a new history entry."
+});
+
+const retargetCode = await CodeBlock({
+    code: `UIBuilder.router.retarget("/about");`
 });
 
 const rootTopic = Topic({
@@ -46,6 +59,18 @@ const rootCode = await CodeBlock({
 UIBuilder.body.render(app);
 
 UIBuilder.router.root(app);`
+});
+
+const baseTopic = Topic({
+    title: "base",
+    content: "Define a base path for the router. Routes and navigation are resolved relative to this path, which is useful when an application is hosted inside a subdirectory."
+});
+
+const baseCode = await CodeBlock({
+    code: `UIBuilder.router.base("/app");
+
+UIBuilder.router.route("/", home);
+UIBuilder.router.navigate("/about");`
 });
 
 const initTopic = Topic({
@@ -75,6 +100,19 @@ const forwardCode = await CodeBlock({
     code: `UIBuilder.router.forward();`
 });
 
+const outRouteTopic = Topic({
+    title: "outRoute",
+    content: "Define fallback content to render when the current URL does not match any registered route."
+});
+
+const outRouteCode = await CodeBlock({
+    code: `const notFound = UIBuilder.label({
+    label: "Page not found"
+});
+
+UIBuilder.router.outRoute(notFound);`
+});
+
 const blendTopic = Topic({
     title: "Blend",
     content: "A route can contain multiple elements by using UIBuilder.blend. All elements in the blend are rendered together when the route is active."
@@ -95,9 +133,87 @@ UIBuilder.router.route(
 );`
 });
 
+const paramTopic = Topic({
+    title: "Parameters",
+    content: "Routes can define dynamic parameters using the :name syntax. The parameter values are decoded from the current URL and can be accessed with listenParam."
+});
+
+const paramCode = await CodeBlock({
+    code: `UIBuilder.router.route(
+    "/user/:id",
+    profile
+);
+
+UIBuilder.router.listenParam("/user", ({ id }) => {
+    console.log("User ID:", id);
+});
+
+UIBuilder.router.navigate("/user/42");`
+});
+
+const queryTopic = Topic({
+    title: "Query",
+    content: "Listen for query string changes on a route using listenQuery. Query values are provided as a key-value object."
+});
+
+const queryCode = await CodeBlock({
+    code: `UIBuilder.router.listenQuery("/search", (queries) => {
+    console.log(queries);
+});
+
+UIBuilder.router.navigate("/search?q=ui-builder&page=2");`
+});
+
+const listenRouteTopic = Topic({
+    title: "listenRoute",
+    content: "Listen for navigation to a route. The callback is executed whenever the registered route becomes active."
+});
+
+const listenRouteCode = await CodeBlock({
+    code: `UIBuilder.router.listenRoute("/about", () => {
+    console.log("About route accessed");
+});`
+});
+
+const listenParamTopic = Topic({
+    title: "listenParam",
+    content: "Listen for changes to dynamic route parameters. The callback receives the resolved parameters as an object."
+});
+
+const listenParamCode = await CodeBlock({
+    code: `UIBuilder.router.listenParam("/user", ({ id }) => {
+    console.log("User ID:", id);
+});`
+});
+
+const listenQueryTopic = Topic({
+    title: "listenQuery",
+    content: "Listen for query string changes on a route. The callback receives all query values as an object."
+});
+
+const listenQueryCode = await CodeBlock({
+    code: `UIBuilder.router.listenQuery("/search", (queries) => {
+    console.log("Queries:", queries);
+});`
+});
+
+const anchorTopic = Topic({
+    title: "Anchor",
+    content: "Create a navigation element using UIBuilder.anchor. It provides a primitive anchor element that can navigate through the UIBuilder router without reloading the page."
+});
+
+const anchorCode = await CodeBlock({
+    code: `const link = UIBuilder.anchor({
+    label: "About",
+    path: "/about"
+});
+
+UIBuilder.body.render(link);`
+});
+
 const exampleTopic = Topic({
     title: "Example",
-    content: "A complete router setup can define the application root, register multiple routes and initialize the router once the interface is ready."
+    content: "A complete router setup can define the application root, register routes, configure a base path, listen for parameters and initialize the router once the interface is ready."
 });
 
 const exampleCode = await CodeBlock({
@@ -108,36 +224,27 @@ const exampleCode = await CodeBlock({
 UIBuilder.body.render(app);
 UIBuilder.router.root(app);
 
+UIBuilder.router.base("/app");
+
 const home = UIBuilder.label({
     label: "Home"
 });
 
-const about = UIBuilder.label({
-    label: "About"
+const profile = UIBuilder.label({
+    label: "Profile"
 });
 
 UIBuilder.router.route("/", home);
-UIBuilder.router.route("/about", about);
+UIBuilder.router.route("/profile/:id", profile);
+
+UIBuilder.router.listenParam("/profile", ({ id }) => {
+    console.log("Profile:", id);
+});
 
 UIBuilder.router.init();
 
-UIBuilder.router.navigate("/about");`
+UIBuilder.router.navigate("/profile/42");`
 });
-
-const routeButtonTopic = Topic({
-    title: "Route Button",
-    content: "Create a button that navigates to a registered route using UIBuilder.routeButton. It combines a label and a route path, using the UIBuilder router to navigate without reloading the page."
-});
-
-const routeButtonCode = await CodeBlock({
-    code: `const button = UIBuilder.routeButton({
-    label: "About",
-    path: "/about"
-});
-
-UIBuilder.body.render(button);`
-});
-
 
 export const routerSection = RouterView({
     childs: UIBuilder.blend(
@@ -146,19 +253,35 @@ export const routerSection = RouterView({
         routeCode,
         navigateTopic,
         navigateCode,
+        retargetTopic,
+        retargetCode,
         rootTopic,
         rootCode,
+        baseTopic,
+        baseCode,
         initTopic,
         initCode,
         backTopic,
         backCode,
         forwardTopic,
         forwardCode,
+        outRouteTopic,
+        outRouteCode,
         blendTopic,
         blendCode,
+        paramTopic,
+        paramCode,
+        queryTopic,
+        queryCode,
+        listenRouteTopic,
+        listenRouteCode,
+        listenParamTopic,
+        listenParamCode,
+        listenQueryTopic,
+        listenQueryCode,
+        anchorTopic,
+        anchorCode,
         exampleTopic,
-        exampleCode,
-        routeButtonTopic,
-        routeButtonCode
+        exampleCode
     )
 });

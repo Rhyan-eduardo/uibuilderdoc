@@ -32,12 +32,9 @@ const optionsCode = await CodeBlock({
     id: "submit-button",
     className: "button",
     classList: ["primary", "large"],
-    attribute: [
-        {
-            name: "type",
-            value: "submit"
-        }
-    ],
+    attribute: {
+        "type" : "submit"
+    },
     label: "Submit"
 });`
 });
@@ -97,16 +94,10 @@ const attributeTopic = Topic({
 
 const attributeCode = await CodeBlock({
     code: `const button = UIBuilder.button({
-    attribute: [
-        {
-            name: "type",
-            value: "submit"
-        },
-        {
-            name: "aria-label",
-            value: "Submit form"
-        }
-    ],
+    attribute: {
+        "type" : "submit"
+        "aria-label" : "Submit form"
+    },
     label: "Submit"
 });`
 });
@@ -175,12 +166,9 @@ const removeAttributeTopic = Topic({
 
 const removeAttributeCode = await CodeBlock({
     code: `const button = UIBuilder.button({
-    attribute: [
-        {
-            name: "disabled",
-            value: "true"
-        }
-    ]
+    attribute: {
+        "disabled" : "true"
+    }
 });
 
 button.removeAttribute("disabled");`

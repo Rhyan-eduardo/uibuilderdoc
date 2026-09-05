@@ -32,12 +32,10 @@ const optionsCode = await CodeBlock({
     id: "main-panel",
     className: "main-panel",
     classList: ["layout", "content"],
-    attribute: [
-        {
-            name: "data-layout",
-            value: "main"
-        }
-    ]
+    attribute: {
+        "data-layout" : "main"
+    }
+    
 });`
 });
 
@@ -93,16 +91,10 @@ const attributeTopic = Topic({
 
 const attributeCode = await CodeBlock({
     code: `const panel = UIBuilder.panel({
-    attribute: [
-        {
-            name: "data-layout",
-            value: "content"
-        },
-        {
-            name: "aria-label",
-            value: "Main content"
-        }
-    ]
+    attribute: {
+        "data-layout" : "content",
+        "aria-label" : "Main content"
+    }
 });`
 });
 
@@ -213,12 +205,10 @@ const removeAttributeTopic = Topic({
 
 const removeAttributeCode = await CodeBlock({
     code: `const panel = UIBuilder.panel({
-    attribute: [
-        {
-            name: "data-layout",
-            value: "content"
-        }
-    ]
+    attribute: {
+        "data-layout" : "content"
+    }
+    
 });
 
 panel.removeAttribute("data-layout");`
