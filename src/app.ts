@@ -15,7 +15,7 @@ UIBuilder.body.render(root);
 const sideBar = UIBuilder.panel({ className : "side-bar"});
 export const docArea = UIBuilder.panel({ className : "doc-area"});
 
-const layout = UIBuilder.blend(sideBar,docArea)
+const layout = UIBuilder.blend(sideBar,docArea) 
 
 root.render(layout);
 
@@ -46,26 +46,24 @@ const menuContainer = UIBuilder.group({ className : "menu-container"})
 
 sideBar.render(menuContainer);
 
-initRouter();
 
-docArea.render(footer());
 
-const overviewButton = UIBuilder.routeButton({ path : "/", label: "Overview" , className : "menu-button"});
-const quickStartMenuButton = UIBuilder.routeButton({ path : "/quick-start", label: "Quick Start" , className : "menu-button"});
-const uibuilderButton = UIBuilder.routeButton({ path : "/uibuilder", label: "UIBuilder" , className : "menu-button"});
+const overviewButton = UIBuilder.anchor({ path : "/", label: "Overview" , className : "menu-button"});
+const quickStartMenuButton = UIBuilder.anchor({ path : "/quick-start", label: "Quick Start" , className : "menu-button"});
+// const uibuilderButton = UIBuilder.rout   eB utton({ path : "/uibuilder", label: "UIBuilder" , className : "menu-button"});
 
 const getStartedSection = MenuSection({
     title: "Get Started",
-    childs: UIBuilder.blend(overviewButton,quickStartMenuButton,uibuilderButton)
+    childs: UIBuilder.blend(overviewButton,quickStartMenuButton)
 }); 
 
 menuContainer.render(getStartedSection);  
 
 // TEMPLATE SEC TION : 
 
-const electronTemplateButton = UIBuilder.routeButton({ path : "/electron-template", label: "Electron" , className : "menu-button"});
-const webTemplateButton = UIBuilder.routeButton({ path : "/web-template", label: "Web" , className : "menu-button"});
-const capacitorTemplateButton = UIBuilder.routeButton({ path : "/", label: "Capacitor" , className : "menu-button"});
+const electronTemplateButton = UIBuilder.anchor({ path : "/electron-template", label: "Electron" , className : "menu-button"});
+const webTemplateButton = UIBuilder.anchor({ path : "/web-template", label: "Web" , className : "menu-button"});
+const capacitorTemplateButton = UIBuilder.anchor({ path : "/", label: "Capacitor" , className : "menu-button"});
 
 const templateSection = MenuSection({
     title: "Template",
@@ -80,29 +78,27 @@ menuContainer.render(templateSection);
 
 // ELEMENT SECTION : 
 
-const buttonElementButton = UIBuilder.routeButton({ path : "/button", label: "Button" , className : "menu-button"});
-const groupElementButton = UIBuilder.routeButton({ path : "/group", label: "Group" , className : "menu-button"});
-const panelElementButton = UIBuilder.routeButton({ path : "/panel", label: "Panel" , className : "menu-button"});
-const textFieldElementButton = UIBuilder.routeButton({ path : "/field", label: "Field" , className : "menu-button"});
-const sliderElementButton = UIBuilder.routeButton({ path : "/slider", label: "Slider" , className : "menu-button"});
-const slideElementButton = UIBuilder.routeButton({ path : "/label", label: "Label" , className : "menu-button"});
-const imageElementButton = UIBuilder.routeButton({ path : "/image", label: "Image" , className : "menu-button"});
-const routeButtonElementButton = UIBuilder.routeButton({ path : "/anchor", label: "Anchor" , className : "menu-button"});
-const iconElementButton = UIBuilder.routeButton({ path : "/icon", label: "Icon" , className : "menu-button"});
-const customElementButton = UIBuilder.routeButton({ path : "/custom", label: "Custom" , className : "menu-button"});
+const buttonElementButton = UIBuilder.anchor({ path : "/button", label: "Button" , className : "menu-button"});
+const groupElementButton = UIBuilder.anchor({ path : "/group", label: "Group" , className : "menu-button"});
+const textFieldElementButton = UIBuilder.anchor({ path : "/field", label: "Field" , className : "menu-button"});
+const sliderElementButton = UIBuilder.anchor({ path : "/slider", label: "Slider" , className : "menu-button"});
+const slideElementButton = UIBuilder.anchor({ path : "/label", label: "Label" , className : "menu-button"});
+const imageElementButton = UIBuilder.anchor({ path : "/image", label: "Image" , className : "menu-button"});
+const anchorElementButton = UIBuilder.anchor({ path : "/anchor", label: "Anchor" , className : "menu-button"});
+const iconElementButton = UIBuilder.anchor({ path : "/icon", label: "Icon" , className : "menu-button"});
+const customElementButton = UIBuilder.anchor({ path : "/custom", label: "Custom" , className : "menu-button"});
 
 const elementSection = MenuSection({
     title: "Element",
     childs: UIBuilder.blend(
         buttonElementButton,
         groupElementButton,
-        panelElementButton,
         textFieldElementButton,
         sliderElementButton,
         slideElementButton,
         imageElementButton,
         iconElementButton,
-        routeButtonElementButton,
+        anchorElementButton,
         customElementButton
     )
 });
@@ -111,10 +107,10 @@ menuContainer.render(elementSection);
 
 // METHOD SECTION : 
 
-const   blendMethodButton = UIBuilder.routeButton({ path : "/blend", label: "Blend" , className : "menu-button"});
-const   styleMethodButton = UIBuilder.routeButton({ path : "/style", label: "Style" , className : "menu-button"});
-const   eventMethodButton = UIBuilder.routeButton({ path : "/event", label: "Event" , className : "menu-button"});
-const   componentMethodButton = UIBuilder.routeButton({ path : "/component", label: "Component" , className : "menu-button"});
+const   blendMethodButton = UIBuilder.anchor({ path : "/blend", label: "Blend" , className : "menu-button"});
+const   styleMethodButton = UIBuilder.anchor({ path : "/style", label: "Style" , className : "menu-button"});
+const   eventMethodButton = UIBuilder.anchor({ path : "/event", label: "Event" , className : "menu-button"});
+const   componentMethodButton = UIBuilder.anchor({ path : "/component", label: "Component" , className : "menu-button"});
 
 const methodSection = MenuSection({
     title: "Method",
@@ -130,12 +126,12 @@ menuContainer.render(methodSection);
 
 // UTILITY SECTION : 
 
-const   watcherUtilityButton = UIBuilder.routeButton({ path : "/watcher", label: "Watcher" , className : "menu-button"});
-const   storeUtilityButton = UIBuilder.routeButton({ path : "/store", label: "Store" , className : "menu-button"});
-const   htmlUtilityButton = UIBuilder.routeButton({ path : "/html", label: "Html" , className : "menu-button"});
-const   bodyUtilityButton = UIBuilder.routeButton({ path : "/body", label: "Body" , className : "menu-button"});
-const   headUtilityButton = UIBuilder.routeButton({ path : "/head", label: "Head" , className : "menu-button"});
-const   routerUtilityButton = UIBuilder.routeButton({ path : "/router", label: "Router" , className : "menu-button"});
+const   watcherUtilityButton = UIBuilder.anchor({ path : "/watcher", label: "Watcher" , className : "menu-button"});
+const   storeUtilityButton = UIBuilder.anchor({ path : "/store", label: "Store" , className : "menu-button"});
+const   htmlUtilityButton = UIBuilder.anchor({ path : "/html", label: "Html" , className : "menu-button"});
+const   bodyUtilityButton = UIBuilder.anchor({ path : "/body", label: "Body" , className : "menu-button"});
+const   headUtilityButton = UIBuilder.anchor({ path : "/head", label: "Head" , className : "menu-button"});
+const   routerUtilityButton = UIBuilder.anchor({ path : "/router", label: "Router" , className : "menu-button"});
 
 const utilitySection = MenuSection({
     title: "Utility",
@@ -151,3 +147,6 @@ const utilitySection = MenuSection({
 
 menuContainer.render(utilitySection);
 
+initRouter();  
+ 
+docArea.render(footer());

@@ -7,7 +7,7 @@ import uibuilderFooterLogo from "../../assets/uibuilder-footer-logo.svg";
 
 export const footer = UIBuilder.component(()=>{
 
-    const footerContainer = UIBuilder.group({ className : "footer-container"});
+    const footerContainer = UIBuilder.group({ className : "footer-container"}); 
 
     const footerLogo = UIBuilder.image({ src : uibuilderFooterLogo , className : "footer-logo"});
 
@@ -25,13 +25,13 @@ export const footer = UIBuilder.component(()=>{
     const footerNPMLink = UIBuilder.custom({ tag : "a" , attribute : { target : "_blank" , href : "https://www.npmjs.com/package/@limbusfoundation/uibuilder"}})
     const footerDocShowcaseLink = UIBuilder.custom({ tag : "a" , attribute : { target : "_blank" , href : "https://github.com/Rhyan-eduardo/uibuilderdoc"}})
 
-    footerGithubLink.label("Github");
+    footerGithubLink.label("GitHub");
     footerNPMLink.label("NPM");
     footerDocShowcaseLink.label("DOC Code - Showcase");
 
     footerLink.render(UIBuilder.blend(footerGithubLink,footerNPMLink,footerDocShowcaseLink))
 
     footerContainer.render(UIBuilder.blend(footerLogo,footerCopy,madeInlabel,lastUpdateLabel,licenseLabel,footerLink));
-
+    
     return footerContainer
 });
