@@ -15,6 +15,10 @@ UIBuilder.body.render(root);
 const sideBar = UIBuilder.panel({ className : "side-bar"});
 export const docArea = UIBuilder.panel({ className : "doc-area"});
 
+export const routeViewStatic = UIBuilder.group({ className : "router-view-static"});
+
+docArea.render(routeViewStatic)
+
 const layout = UIBuilder.blend(sideBar,docArea) 
 
 root.render(layout);

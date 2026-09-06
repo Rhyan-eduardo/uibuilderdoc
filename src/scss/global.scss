@@ -189,6 +189,18 @@ body {
     margin-top: 70px;
 }
 
+.router-view-static{
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    display : flex;
+    justify-content : flex-start;
+    align-items : center;
+    flex-direction : column;
+    margin-top: 70px;
+}
+
 .footer-container{
     position: relative;
     width: 100%;

@@ -26,11 +26,11 @@ import { routerSection } from "../../modules/section/router-section";
 import { electronTemplateSection } from "../../modules/section/electron-section";
 import { webTemplateSection } from "../../modules/section/web-section";
 import { UIBuilder } from "@limbusfoundation/uibuilder"; 
-import { docArea } from "../../app";
+import { routeViewStatic } from "../../app";
 
 export const initRouter = () : void => {
 
-    UIBuilder.router.root(docArea)
+    UIBuilder.router.root(routeViewStatic)
     UIBuilder.router.route("/", overviewRoute);
     UIBuilder.router.route("/quick-start", quickStartSection);
     UIBuilder.router.route("/uibuilder", uibuilderSection);
