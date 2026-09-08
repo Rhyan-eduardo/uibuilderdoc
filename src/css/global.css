@@ -78,15 +78,26 @@
   border-radius: 5px;
   background: white;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .doc-install-label {
-  position: absolute;
+  position: relative;
   color: #00334C;
   font-size: 15px;
   text-align: left;
   font-family: monospace;
-  left: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 15px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
 }
 
 .code-block {
@@ -106,6 +117,8 @@
   padding: 20px;
   border: 2px solid #06B4FF;
   border-radius: 5px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .doc-install-copy-button {
@@ -117,8 +130,8 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  width: 50px;
-  height: 30px;
+  width: 30px;
+  height: 9px;
   background: none;
   cursor: pointer;
 }
@@ -240,6 +253,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  transition: transform 0.3s ease-in-out;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #032230 transparent;
@@ -468,6 +482,57 @@ body {
 }
 .footer-link a {
   color: #0296f8;
+}
+
+.menu-button-han {
+  position: absolute;
+  font-size: 25px;
+  color: #ffffff;
+  left: 17px;
+  top: -25px;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .side-bar {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%);
+    top: 0px;
+    padding-bottom: 50px;
+  }
+  .side-bar:active {
+    transform: translateX(-100%);
+  }
+  .doc-area {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+  .router-view-static {
+    margin-top: 0px;
+  }
+  .menu-button-han {
+    display: flex;
+  }
+  .doc-lib-install {
+    width: 90%;
+  }
+  .topic-group {
+    width: 90%;
+  }
+  .code-block {
+    width: 90%;
+  }
+  .logo {
+    width: 70%;
+  }
+  .title {
+    font-size: 25px;
+  }
 }
 
 /*# sourceMappingURL=global.css.map */

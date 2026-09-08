@@ -40,6 +40,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    transition: transform 0.3s ease-in-out;
 
     overflow-y: auto;
     scrollbar-width: thin;
@@ -279,5 +280,56 @@ body {
     gap: 5px;
     a{
         color : #0296f8;
+    }
+}
+
+.menu-button-han{
+    position: absolute;
+    font-size: 25px;
+    color : #ffffff;
+    left: 17px; 
+    top: -25px;
+    display : none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .side-bar {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+        transform: translateX(-100%);
+        top: 0px;
+        padding-bottom: 50px;
+        &:active {
+            transform: translateX(-100%);
+        }
+    }
+    .doc-area{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+    }
+    .router-view-static{
+        margin-top: 0px;
+    }
+    .menu-button-han{
+        display : flex;
+    } 
+    .doc-lib-install{ 
+        width: 90%; 
+    }
+    .topic-group{
+        width: 90%;
+    }
+    .code-block{
+        width: 90%;
+    }
+    .logo{
+        width: 70%;
+    }
+    .title{
+        font-size: 25px;
     }
 }

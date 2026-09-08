@@ -16,9 +16,9 @@ export const CodeCopy = UIBuilder.component(({ code } : { code : string })=> {
         className: "doc-install-label"
     });
 
-    const copyCodeButton = UIBuilder.iconButton({
-        iconClassName: "ri-clipboard-line",
-        className: "doc-install-copy-button"
+    const copyCodeButton = UIBuilder.icon({
+        className : "ri-clipboard-line",
+        classList : ["doc-install-copy-button"]
     });
 
     UIBuilder.event(copyCodeButton).add("click", async () => {

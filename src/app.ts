@@ -12,12 +12,12 @@ const root = UIBuilder.group({ className : "root-container"});
 
 UIBuilder.body.render(root);
 
-const sideBar = UIBuilder.panel({ className : "side-bar"});
-export const docArea = UIBuilder.panel({ className : "doc-area"});
+export const sideBar = UIBuilder.group({ className : "side-bar"});
+export const docArea = UIBuilder.group({ className : "doc-area"});
 
 export const routeViewStatic = UIBuilder.group({ className : "router-view-static"});
 
-docArea.render(routeViewStatic)
+docArea.render(routeViewStatic) 
 
 const layout = UIBuilder.blend(sideBar,docArea) 
 
@@ -26,6 +26,28 @@ root.render(layout);
 const docHeader = UIBuilder.group({ className : "doc-header"});
 
 sideBar.render(docHeader);
+
+const hideSideBar = () : any => sideBar.style({ transform : "translateX(-100%)"});
+
+
+const media = window.matchMedia("(max-width: 768px)");
+
+const checkSize = () => {
+
+    const isMobile = media.matches;
+
+
+    if(isMobile) UIBuilder.event(sideBar).add("click",hideSideBar);
+    else UIBuilder.event(sideBar).remove("click",hideSideBar);
+
+    if(!isMobile) sideBar.style({ transform : "translateX(0px)"})
+
+
+};
+
+media.addEventListener("change", checkSize);
+
+checkSize();
 
 const docLogo = UIBuilder.image({ src : logoImg , className : "doc-header-logo"});
 
