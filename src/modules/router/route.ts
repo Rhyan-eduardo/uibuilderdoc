@@ -27,6 +27,7 @@ import { electronTemplateSection } from "../../modules/section/electron-section"
 import { webTemplateSection } from "../../modules/section/web-section";
 import { UIBuilder } from "@limbusfoundation/uibuilder"; 
 import { routeViewStatic } from "../../app";
+import { capacitorTemplateSection } from "../section/capacitor-section";
 
 export const initRouter = () : void => {
 
@@ -56,16 +57,15 @@ export const initRouter = () : void => {
     UIBuilder.router.route("/electron-template", electronTemplateSection);
     UIBuilder.router.route("/web-template", webTemplateSection);
     UIBuilder.router.route("/uibuilder", uibuilderSection);
+    UIBuilder.router.route("/capacitor-template", capacitorTemplateSection);
     UIBuilder.router.init();
-    
+
 };
 
-
-
 const updateActiveAnchor = (path: string) => {
-    console.log("ANCHORS:", document.querySelectorAll("a").length);
 
     document.querySelectorAll("a").forEach((element) => {
+
         const href = element.getAttribute("href");
 
         element.style.background = "";
@@ -74,107 +74,10 @@ const updateActiveAnchor = (path: string) => {
         if (href === path) {
             element.style.background = "#032230";
             element.style.color = "#ffffff";
-        }
+        };
     });
 };
 
-UIBuilder.router.listenRoute("/", () => {
-    updateActiveAnchor("/");
-});
+UIBuilder.router.listenAllRoute((route)=> updateActiveAnchor(route)); 
 
-UIBuilder.router.listenRoute("/quick-start", () => {
-    updateActiveAnchor("/quick-start");
-});
-
-UIBuilder.router.listenRoute("/uibuilder", () => {
-    updateActiveAnchor("/uibuilder");
-});
-
-UIBuilder.router.listenRoute("/button", () => {
-    console.log("LISTENER BUTTON");
-    updateActiveAnchor("/button");
-});
-
-UIBuilder.router.listenRoute("/group", () => {
-    updateActiveAnchor("/group");
-});
-
-UIBuilder.router.listenRoute("/panel", () => {
-    updateActiveAnchor("/panel");
-});
-
-UIBuilder.router.listenRoute("/field", () => {
-    updateActiveAnchor("/field");
-});
-
-UIBuilder.router.listenRoute("/slider", () => {
-    updateActiveAnchor("/slider");
-});
-
-UIBuilder.router.listenRoute("/label", () => {
-    updateActiveAnchor("/label");
-});
-
-UIBuilder.router.listenRoute("/image", () => {
-    updateActiveAnchor("/image");
-});
-
-UIBuilder.router.listenRoute("/icon", () => {
-    updateActiveAnchor("/icon");
-});
-
-UIBuilder.router.listenRoute("/anchor", () => {
-    updateActiveAnchor("/anchor");
-});
-
-UIBuilder.router.listenRoute("/custom", () => {
-    updateActiveAnchor("/custom");
-});
-
-UIBuilder.router.listenRoute("/blend", () => {
-    updateActiveAnchor("/blend");
-});
-
-UIBuilder.router.listenRoute("/style", () => {
-    updateActiveAnchor("/style");
-});
-
-UIBuilder.router.listenRoute("/event", () => {
-    updateActiveAnchor("/event");
-});
-
-UIBuilder.router.listenRoute("/component", () => {
-    updateActiveAnchor("/component");
-});
-
-UIBuilder.router.listenRoute("/watcher", () => {
-    updateActiveAnchor("/watcher");
-});
-
-UIBuilder.router.listenRoute("/store", () => {
-    updateActiveAnchor("/store");
-});
-
-UIBuilder.router.listenRoute("/html", () => {
-    updateActiveAnchor("/html");
-});
-
-UIBuilder.router.listenRoute("/body", () => {
-    updateActiveAnchor("/body");
-});
-
-UIBuilder.router.listenRoute("/head", () => {
-    updateActiveAnchor("/head");
-});
-
-UIBuilder.router.listenRoute("/router", () => {
-    updateActiveAnchor("/router");
-});
-
-UIBuilder.router.listenRoute("/electron-template", () => {
-    updateActiveAnchor("/electron-template");
-});
-
-UIBuilder.router.listenRoute("/web-template", () => {
-    updateActiveAnchor("/web-template");
-});
+ 

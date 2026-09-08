@@ -67,7 +67,7 @@ menuContainer.render(getStartedSection);
 
 const electronTemplateButton = UIBuilder.anchor({ path : "/electron-template", label: "Electron" , className : "menu-button"});
 const webTemplateButton = UIBuilder.anchor({ path : "/web-template", label: "Web" , className : "menu-button"});
-const capacitorTemplateButton = UIBuilder.anchor({ path : "/", label: "Capacitor" , className : "menu-button"});
+const capacitorTemplateButton = UIBuilder.anchor({ path : "/capacitor-template", label: "Capacitor" , className : "menu-button"});
 
 const templateSection = MenuSection({
     title: "Template",

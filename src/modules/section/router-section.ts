@@ -246,6 +246,26 @@ UIBuilder.router.init();
 UIBuilder.router.navigate("/profile/42");`
 });
 
+const listenAllRouteTopic = Topic({
+
+    title: "ListenAllRoute",
+
+    content: "Listen for every route change and receive the resolved base route. Dynamic route parameters and query values are excluded from the returned route."
+
+});
+
+const listenAllRouteCode = await CodeBlock({
+
+    code: `UIBuilder.router.listenAllRoute((route) => {
+
+    console.log("Route:", route);
+
+});
+
+UIBuilder.router.navigate("/profile/42?tab=posts");`
+
+});
+
 export const routerSection = RouterView({
     childs: UIBuilder.blend(
         routerTopic,
@@ -281,7 +301,9 @@ export const routerSection = RouterView({
         listenQueryCode,
         anchorTopic,
         anchorCode,
+        listenAllRouteTopic,
+        listenAllRouteCode,
         exampleTopic,
-        exampleCode
+        exampleCode 
     )
 });

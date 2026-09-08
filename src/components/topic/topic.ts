@@ -4,7 +4,12 @@ import { UIBuilder } from "@limbusfoundation/uibuilder";
 
 export const Topic = UIBuilder.component(({ title, content, highlight }: {title: string,content: string,highlight?: string[]}) => {
 
-    const topicGroup = UIBuilder.group({ className: "topic-group" });
+    const anchorId = title.replaceAll(" ","-").toLowerCase();
+
+    const topicGroup = UIBuilder.group({ className: "topic-group" , id : anchorId});
+
+    const anchor = UIBuilder.custom({ tag : "a" , className : "topic-anchor" , attribute : { href : "#" + anchorId}});
+    anchor.label("# ");
 
     if (highlight) {
         highlight.forEach(h => {
@@ -16,6 +21,8 @@ export const Topic = UIBuilder.component(({ title, content, highlight }: {title:
     const topicContent = UIBuilder.custom({ tag: "p", className: "topic-content" });
 
     topicTitle.label(title);
+
+    topicTitle.render(anchor,"above");
 
     UIBuilder.html.parseHTMLElement(topicContent).innerHTML = content;
 
