@@ -6,7 +6,7 @@ import { MenuSection } from "./components/menu-section/menu-section";
 import { initRouter } from "./modules/router/route";
 
 import logoImg from "./assets/uibuilder-logo-vector.svg";
-import { footer } from "./modules/footer/footer";
+import { footer } from "./components/footer/footer";
 
 const root = UIBuilder.group({ className : "root-container"});
 
