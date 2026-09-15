@@ -17,7 +17,7 @@ export const docArea = UIBuilder.group({ className : "doc-area"});
 
 export const routeViewStatic = UIBuilder.group({ className : "router-view-static"});
 
-docArea.render(routeViewStatic) 
+// docArea.render(routeViewStatic) 
 
 const layout = UIBuilder.blend(sideBar,docArea) 
 
@@ -189,5 +189,7 @@ const utilitySection = MenuSection({
 menuContainer.render(utilitySection);
 
 initRouter();  
+
+setTimeout(() => docArea.render(footer()), 1000); 
  
-docArea.render(footer());
+
