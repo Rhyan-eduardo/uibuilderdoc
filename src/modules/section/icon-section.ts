@@ -28,58 +28,9 @@ const optionsCode = await CodeBlock({
     code: `const icon = UIBuilder.icon({
     id: "home-icon",
     className: "ri-home-line",
-    classList: ["icon", "primary"],
     attribute: {
         "aria-label": "Home",
         "data-icon": "home"
-    }
-});`
-});
-
-const idTopic = Topic({
-    title: "id",
-    content: "Set a unique HTML id for the icon."
-});
-
-const idCode = await CodeBlock({
-    code: `const icon = UIBuilder.icon({
-    id: "home-icon"
-});`
-});
-
-const classNameTopic = Topic({
-    title: "className",
-    content: "Set the CSS class name of the icon. This is commonly used to specify the icon provided by an external icon library."
-});
-
-const classNameCode = await CodeBlock({
-    code: `const icon = UIBuilder.icon({
-    className: "ri-home-line"
-});`
-});
-
-const classListTopic = Topic({
-    title: "classList",
-    content: "Add multiple CSS classes to the icon when it is created."
-});
-
-const classListCode = await CodeBlock({
-    code: `const icon = UIBuilder.icon({
-    classList: ["icon", "large", "primary"]
-});`
-});
-
-const attributeTopic = Topic({
-    title: "attribute",
-    content: "Define custom HTML attributes for the icon using an object where each property represents an attribute name and its value represents the attribute value."
-});
-
-const attributeCode = await CodeBlock({
-    code: `const icon = UIBuilder.icon({
-    attribute: {
-        "aria-label": "Home",
-        "data-icon": "home",
-        "role": "img"
     }
 });`
 });
@@ -103,14 +54,6 @@ export const iconSection = RouterView({
         iconCode,
         optionsTopic,
         optionsCode,
-        idTopic,
-        idCode,
-        classNameTopic,
-        classNameCode,
-        classListTopic,
-        classListCode,
-        attributeTopic,
-        attributeCode,
         renderTopic,
         renderCode
     )

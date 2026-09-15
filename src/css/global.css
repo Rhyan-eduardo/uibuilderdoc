@@ -150,6 +150,11 @@
   background: rgba(0, 170, 255, 0.2);
 }
 
+.overview-anchor {
+  color: #0296f8;
+  text-decoration: none;
+}
+
 .topic-group {
   position: relative;
   width: 70%;

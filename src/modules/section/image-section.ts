@@ -29,7 +29,6 @@ const optionsCode = await CodeBlock({
     id: "logo",
     src: "https://example.com/logo.png",
     className: "image",
-    classList: ["logo", "primary"],
     attribute: {
         "alt": "Application logo",
         "loading": "lazy"
@@ -46,68 +45,6 @@ const srcCode = await CodeBlock({
     code: `const image = UIBuilder.image({
     src: "https://example.com/image.png"
 });`
-});
-
-const idTopic = Topic({
-    title: "id",
-    content: "Set a unique HTML id for the image."
-});
-
-const idCode = await CodeBlock({
-    code: `const image = UIBuilder.image({
-    id: "logo"
-});`
-});
-
-const classNameTopic = Topic({
-    title: "className",
-    content: "Set the CSS class name of the image."
-});
-
-const classNameCode = await CodeBlock({
-    code: `const image = UIBuilder.image({
-    className: "image"
-});`
-});
-
-const classListTopic = Topic({
-    title: "classList",
-    content: "Add multiple CSS classes to the image when it is created."
-});
-
-const classListCode = await CodeBlock({
-    code: `const image = UIBuilder.image({
-    classList: ["image", "logo"]
-});`
-});
-
-const attributeTopic = Topic({
-    title: "attribute",
-    content: "Define custom HTML attributes for the image using an object where each property represents an attribute name and its value represents the attribute value."
-});
-
-const attributeCode = await CodeBlock({
-    code: `const image = UIBuilder.image({
-    attribute: {
-        "alt": "Application logo",
-        "loading": "lazy",
-        "width": "256",
-        "height": "256"
-    }
-});`
-});
-
-const srcMethodTopic = Topic({
-    title: "src",
-    content: "Update the source of an existing image."
-});
-
-const srcMethodCode = await CodeBlock({
-    code: `const image = UIBuilder.image({
-    src: "https://example.com/old-image.png"
-});
-
-image.src("https://example.com/new-image.png");`
 });
 
 const renderTopic = Topic({
@@ -131,16 +68,6 @@ export const imageSection = RouterView({
         optionsCode,
         srcTopic,
         srcCode,
-        idTopic,
-        idCode,
-        classNameTopic,
-        classNameCode,
-        classListTopic,
-        classListCode,
-        attributeTopic,
-        attributeCode,
-        srcMethodTopic,
-        srcMethodCode,
         renderTopic,
         renderCode
     )

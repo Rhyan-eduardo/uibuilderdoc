@@ -43,7 +43,10 @@ const callbackCode = await CodeBlock({
 
 const storeTopic = Topic({
     title: "UIStore",
-    content: "UIWatcher can also observe a UIStore. When a value inside the store changes, the watcher callback receives the store's current state."
+    content: "UIWatcher can also observe a UIStore. When a value inside the store changes, the watcher callback receives the store's current state. This method is deprecated; use UIStore.listenSector() instead.",
+    deprecated : true,
+    highlight : ["This method is deprecated; use UIStore.listenSector() instead."],
+    see : "[listenSector();](/store#listen-sector)"
 });
 
 const storeCode = await CodeBlock({

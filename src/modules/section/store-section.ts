@@ -8,102 +8,113 @@ import { CodeBlock } from "../../components/code-block/code-block";
 
 const storeTopic = Topic({
     title: "Store",
-    content: "Create a shared state container using UIBuilder.store. A UIStore holds an object that can be accessed and updated throughout your application."
+    content: "Create a shared state container using UIBuilder.store. The UIStore organizes application data into named sectors."
 });
 
 const storeCode = await CodeBlock({
-    code: `const store = UIBuilder.store.set({
-    count: 0,
-    name: "John"
-});`
+    code: `const store = UIBuilder.store;
+
+store.sector("user");
+
+store.set("user", "name", "John");
+store.set("user", "age", 18);`
+});
+
+const sectorTopic = Topic({
+    title: "Sector",
+    content: "Create a named sector in the UIStore to organize related data."
+});
+
+const sectorCode = await CodeBlock({
+    code: `UIBuilder.store.sector("user");`
 });
 
 const setTopic = Topic({
-    title: "set",
-    content: "Use set to create a UIStore from an initial object. The object passed to set becomes the store's initial state."
+    title: "Set",
+    content: "Create or update a value inside a sector. If the key already exists, its value is updated. Otherwise, a new value is created."
 });
 
 const setCode = await CodeBlock({
-    code: `const store = UIBuilder.store.set({
-    count: 0
-});`
+    code: `const store = UIBuilder.store;
+
+store.sector("user");
+
+store.set("user", "name", "John");
+store.set("user", "age", 18);
+
+store.set("user", "age", 19);`
 });
 
 const getTopic = Topic({
-    title: "get",
-    content: "Access the current store state through the get property. The returned object contains the values stored in the UIStore."
+    title: "Get",
+    content: "Retrieve a value from a sector by its key. The get method supports a generic type to define the expected value type."
 });
 
 const getCode = await CodeBlock({
-    code: `const store = UIBuilder.store.set({
-    count: 0,
-    name: "John"
+    code: `const store = UIBuilder.store;
+
+store.sector("user");
+
+store.set("user", "age", 18);
+
+const age = store.get<number>("user", "age");
+
+console.log(age);`
 });
 
-console.log(store.get.count);
-console.log(store.get.name);`
+const listenSectorTopic = Topic({
+    title: "Listen Sector",
+    content: "Listen for changes inside a specific sector. The callback receives the sector, changed key, new value, and a compare function for checking the current change."
 });
 
-const updateTopic = Topic({
-    title: "Update",
-    content: "The state can be updated directly through the get property. Changes are made to the same object held by the store."
+const listenSectorCode = await CodeBlock({
+    code: `const store = UIBuilder.store;
+
+store.sector("user");
+
+store.listenSector("user", (sector, key, value, compare) => {
+
+    if(compare("age", 18)) {
+        console.log("User age is 18");
+    }
+
 });
 
-const updateCode = await CodeBlock({
-    code: `const store = UIBuilder.store.set({
-    count: 0
+store.set("user", "age", 18);`
 });
 
-store.get.count = 1;
-
-console.log(store.get.count);`
+const compareTopic = Topic({
+    title: "Compare",
+    content: "Compare the changed key and value with the current change. The value is optional, allowing you to check only whether a specific key changed."
 });
 
-const typedTopic = Topic({
-    title: "Typed Store",
-    content: "UIStore is generic, so TypeScript can infer the shape of the state from the object passed to UIBuilder.store.set."
-});
+const compareCode = await CodeBlock({
+    code: `store.listenSector("user", (sector, key, value, compare) => {
 
-const typedCode = await CodeBlock({
-    code: `const store = UIBuilder.store.set({
-    count: 0,
-    enabled: true
-});
+    if(compare("age", 18)) {
+        console.log("Age changed to 18");
+    }
 
-store.get.count = 10;
-store.get.enabled = false;`
-});
+    if(compare("name")) {
+        console.log("Name changed");
+    }
 
-const watcherTopic = Topic({
-    title: "With Watcher",
-    content: "A UIStore can be combined with UIBuilder.watcher to react to changes in its state."
-});
-
-const watcherCode = await CodeBlock({
-    code: `const store = UIBuilder.store.set({
-    count: 0
-});
-
-UIBuilder.watcher.watch(store, (state) => {
-    console.log(state.count);
-});
-
-store.get.count = 1;`
+});`
 });
 
 export const storeSection = RouterView({
     childs: UIBuilder.blend(
         storeTopic,
         storeCode,
+        sectorTopic,
+        sectorCode,
         setTopic,
         setCode,
         getTopic,
         getCode,
-        updateTopic,
-        updateCode,
-        typedTopic,
-        typedCode,
-        watcherTopic,
-        watcherCode
+        listenSectorTopic,
+        listenSectorCode,
+        compareTopic,
+        compareCode
     )
 });

@@ -36,11 +36,10 @@ const checkSize = () => {
 
     const isMobile = media.matches;
 
-
     if(isMobile) UIBuilder.event(sideBar).add("click",hideSideBar);
     else UIBuilder.event(sideBar).remove("click",hideSideBar);
 
-    if(!isMobile) sideBar.style({ transform : "translateX(0px)"})
+    if(!isMobile) sideBar.style({ transform : "translateX(0px)"}) 
 
 
 };
@@ -131,12 +130,27 @@ const elementSection = MenuSection({
 
 menuContainer.render(elementSection);
 
+// PROPERTY SECTION : 
+
+const   ElementProperty = UIBuilder.anchor({ path : "/element-property", label: "Element" , className : "menu-button"});
+
+const propertyMenu = MenuSection({
+    title: "Property",
+    childs: UIBuilder.blend( 
+        ElementProperty
+    )
+});
+
+menuContainer.render(propertyMenu); 
+
 // METHOD SECTION : 
 
 const   blendMethodButton = UIBuilder.anchor({ path : "/blend", label: "Blend" , className : "menu-button"});
 const   styleMethodButton = UIBuilder.anchor({ path : "/style", label: "Style" , className : "menu-button"});
 const   eventMethodButton = UIBuilder.anchor({ path : "/event", label: "Event" , className : "menu-button"});
 const   componentMethodButton = UIBuilder.anchor({ path : "/component", label: "Component" , className : "menu-button"});
+const   switcherMethodButton = UIBuilder.anchor({ path : "/switcher", label: "Switcher" , className : "menu-button"});
+
 
 const methodSection = MenuSection({
     title: "Method",
@@ -144,7 +158,8 @@ const methodSection = MenuSection({
         blendMethodButton,
         styleMethodButton,
         eventMethodButton,
-        componentMethodButton
+        componentMethodButton,
+        switcherMethodButton
     )
 });
 

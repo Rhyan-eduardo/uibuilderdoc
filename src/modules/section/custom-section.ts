@@ -29,7 +29,7 @@ const optionsCode = await CodeBlock({
     tag: "div",
     id: "container",
     className: "container",
-    classList: ["content", "primary"],
+    content : "Hello World"
     attribute: {
         "data-id": "123",
         title: "Hello"
@@ -53,58 +53,6 @@ const paragraph = UIBuilder.custom({
 
 const section = UIBuilder.custom({
     tag: "section"
-});`
-});
-
-const idTopic = Topic({
-    title: "id",
-    content: "Set a unique HTML id for the custom element."
-});
-
-const idCode = await CodeBlock({
-    code: `const element = UIBuilder.custom({
-    tag: "div",
-    id: "content"
-});`
-});
-
-const classNameTopic = Topic({
-    title: "className",
-    content: "Set the CSS class name of the custom element."
-});
-
-const classNameCode = await CodeBlock({
-    code: `const element = UIBuilder.custom({
-    tag: "div",
-    className: "container"
-});`
-});
-
-const classListTopic = Topic({
-    title: "classList",
-    content: "Add multiple CSS classes to the custom element when it is created."
-});
-
-const classListCode = await CodeBlock({
-    code: `const element = UIBuilder.custom({
-    tag: "div",
-    classList: ["container", "primary"]
-});`
-});
-
-const attributeTopic = Topic({
-    title: "attribute",
-    content: "Define custom HTML attributes for the element using an object where each property represents an attribute name and its value represents the attribute value."
-});
-
-const attributeCode = await CodeBlock({
-    code: `const element = UIBuilder.custom({
-    tag: "div",
-    attribute: {
-        "data-id": "123",
-        "aria-label": "Content",
-        title: "Hello"
-    }
 });`
 });
 
@@ -151,14 +99,6 @@ export const customSection = RouterView({
         optionsCode,
         tagTopic,
         tagCode,
-        idTopic,
-        idCode,
-        classNameTopic,
-        classNameCode,
-        classListTopic,
-        classListCode,
-        attributeTopic,
-        attributeCode,
         compositionTopic,
         compositionCode,
         renderTopic,

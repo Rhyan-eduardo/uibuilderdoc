@@ -51,6 +51,30 @@ const element = UIBuilder.html.parseHTMLElement(label);
 element.textContent = "Updated";`
 });
 
+const renderedTopic = Topic({
+    title: "Rendered Elements",
+    content: "Find rendered HTML elements using a CSS selector or a UIBuilder element. The rendered method returns the matching native HTMLElement, multiple elements when using the ... class selector, or null when no element is found."
+});
+
+const renderedCode = await CodeBlock({
+    code: `const label = UIBuilder.label({
+    label: "Hello World"
+});
+
+UIBuilder.body.render(label);
+
+const element = UIBuilder.html.rendered(label);
+
+element?.textContent = "Updated";`
+});
+
+const selectorCode = await CodeBlock({
+    code: `UIBuilder.html.rendered("#title");
+UIBuilder.html.rendered(".button");
+UIBuilder.html.rendered("...button");
+UIBuilder.html.rendered(UIElement);`
+});
+
 export const htmlSection = RouterView({
     childs: UIBuilder.blend(
         htmlTopic,
@@ -58,6 +82,9 @@ export const htmlSection = RouterView({
         parseTopic,
         parseCode,
         domTopic,
-        domCode
+        domCode,
+        renderedTopic,
+        renderedCode,
+        selectorCode
     )
 });

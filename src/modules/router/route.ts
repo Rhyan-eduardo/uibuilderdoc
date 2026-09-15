@@ -28,6 +28,8 @@ import { webTemplateSection } from "../../modules/section/web-section";
 import { UIBuilder } from "@limbusfoundation/uibuilder"; 
 import { routeViewStatic } from "../../app";
 import { capacitorTemplateSection } from "../section/capacitor-section";
+import { switcherSection } from "../section/switcher-section";
+import { elementPropertySection } from "../section/element-property-section";
 
 export const initRouter = () : void => {
 
@@ -58,6 +60,8 @@ export const initRouter = () : void => {
     UIBuilder.router.route("/web-template", webTemplateSection);
     UIBuilder.router.route("/uibuilder", uibuilderSection);
     UIBuilder.router.route("/capacitor-template", capacitorTemplateSection);
+    UIBuilder.router.route("/switcher", switcherSection);
+    UIBuilder.router.route("/element-property", elementPropertySection);
     UIBuilder.router.init();
 
 };

@@ -35,7 +35,6 @@ const optionsCode = await CodeBlock({
     value: "Rhyan",
     placeholder: "Enter your name",
     className: "field",
-    classList: ["input", "primary"],
     attribute: {
         "autocomplete" : "name"
     }
@@ -91,66 +90,6 @@ const placeholderCode = await CodeBlock({
 field.placeholder("Enter your username");`
 });
 
-
-// ID :
-
-const idTopic = Topic({
-    title: "id",
-    content: "Set a unique HTML id for the field. The value is assigned directly to the underlying HTMLInputElement."
-});
-
-const idCode = await CodeBlock({
-    code: `const field = UIBuilder.field({
-    id: "username"
-});`
-});
-
-
-// CLASS NAME :
-
-const classNameTopic = Topic({
-    title: "className",
-    content: "Set the CSS class name of the field."
-});
-
-const classNameCode = await CodeBlock({
-    code: `const field = UIBuilder.field({
-    className: "field"
-});`
-});
-
-
-// CLASS LIST :
-
-const classListTopic = Topic({
-    title: "classList",
-    content: "Add multiple CSS classes to the field when it is created."
-});
-
-const classListCode = await CodeBlock({
-    code: `const field = UIBuilder.field({
-    classList: ["input", "primary"]
-});`
-});
-
-
-// ATTRIBUTE :
-
-const attributeTopic = Topic({
-    title: "attribute",
-    content: "Define custom HTML attributes for the field using a list of name and value pairs."
-});
-
-const attributeCode = await CodeBlock({
-    code: `const field = UIBuilder.field({
-    attribute: {
-        autocomplete : "username",
-        "data-field" : "user"
-    }
-});`
-});
-
-
 // VALUE METHOD :
 
 const valueMethodTopic = Topic({
@@ -198,25 +137,6 @@ field.disable(true);
 field.disable(false);`
 });
 
-
-// EVENTS :
-
-const eventsTopic = Topic({
-    title: "Events",
-    content: "Attach DOM events to the field through UIBuilder.event. This can be used to react to user input, focus changes, keyboard events, and other native browser events."
-});
-
-const eventsCode = await CodeBlock({
-    code: `const field = UIBuilder.field({
-    placeholder: "Enter your name"
-});
-
-UIBuilder.event(field).add("input", () => {
-    console.log(field.value());
-});`
-});
-
-
 // RENDER :
 
 const renderTopic = Topic({
@@ -252,18 +172,6 @@ export const fieldSection = RouterView({
         placeholderTopic,
         placeholderCode,
 
-        idTopic,
-        idCode,
-
-        classNameTopic,
-        classNameCode,
-
-        classListTopic,
-        classListCode,
-
-        attributeTopic,
-        attributeCode,
-
         valueMethodTopic,
         valueMethodCode,
 
@@ -272,9 +180,6 @@ export const fieldSection = RouterView({
 
         disableTopic,
         disableCode,
-
-        eventsTopic,
-        eventsCode,
 
         renderTopic,
         renderCode
