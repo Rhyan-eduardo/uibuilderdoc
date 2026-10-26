@@ -210,6 +210,29 @@ UIBuilder.body.render(first);
 first.replaceSelfRender(second);`
 });
 
+const clearRenderTopic = Topic({
+    title: "Clear Render",
+    content: "Remove all UIElements rendered by this UIGeneric from the DOM, clear its render list, and reset their rendered state."
+});
+
+const clearRenderCode = await CodeBlock({
+    code: `const group = UIBuilder.group({ className : "your-classname" });
+
+const first = UIBuilder.label({
+    content: "First"
+});
+
+const second = UIBuilder.button({
+    content: "Second"
+});
+
+group.render(first);
+group.render(second);
+
+group.clearRender();`
+
+});
+
 export const elementPropertySection = RouterView({
     childs: UIBuilder.blend(
         idTopic,
@@ -241,6 +264,8 @@ export const elementPropertySection = RouterView({
         styleTopic,
         styleCode,
         replaceSelfRenderTopic,
-        replaceSelfRenderCode
+        replaceSelfRenderCode,
+        clearRenderTopic,
+        clearRenderCode
     )
 });
